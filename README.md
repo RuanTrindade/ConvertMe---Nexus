@@ -36,3 +36,10 @@ Permite ao usuário realizar conversões, salvar histórico, favoritar criptomoe
 1. Clone o repositório  
    ```bash
    git clone https://github.com/RuanTrindade/ConvertMe---Nexus.git
+
+---
+
+## 📞 Contato
+
+Para dúvidas, sugestões ou parcerias, entre em contato:  
+📧 ruansilvapereira2005@gmail.com
