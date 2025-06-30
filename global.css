@@ -1,0 +1,202 @@
+:root {
+  --cor-fundo: #000000;
+  --cor-principal: rgb(255, 196, 0);
+  --cor-texto: white;
+  --cor-borda: white;
+  --cor-erro: red;
+  --cor-btn-fundo: white;
+  --cor-btn-texto: black;
+  --cor-btn-hover-fundo: transparent;
+  --cor-btn-hover-texto: var(--cor-principal);
+  --preto-opacity: rgba(0, 0, 0, 0.7);
+}
+
+.clear {
+  background: transparent;
+  border: none;
+  color: var(--cor-principal);
+}
+
+.solid {
+  background: var(--cor-btn-fundo);
+  border: none;
+  color: var(--cor-btn-texto);
+  transition: 0.3s;
+}
+
+.solid:hover {
+  transform: scale(1.02);
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-btn-hover-fundo);
+  color: var(--cor-btn-hover-texto);
+}
+
+.outline {
+  background: transparent;
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  transition: 0.3s;
+}
+
+.outline:hover {
+  transform: scale(1.02);
+  background: var(--cor-principal);
+  color: var(--cor-btn-texto);
+  font-weight: 600;
+  border: 0;
+}
+
+.error {
+  color: var(--cor-erro);
+  display: none;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Centraliza conteúdo */
+.centralize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Campos do formulário */
+.form-field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Inputs e botões */
+input,
+button {
+  padding: 10px;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Botão cursor */
+button {
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: opacity 0.2s ease;
+}
+
+button:active {
+  opacity: 0.6;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mensagem Toast */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  padding: 0 10px;
+}
+
+.toast {
+  background-color: var(--cor-erro);
+  color: var(--cor-texto);
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadein 0.3s ease, fadeout 0.3s ease 2.7s;
+  font-family: sans-serif;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Loading Overlay */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--preto-opacity);
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: none; /* Controlado por JS */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--cor-principal);
+  border-top: 6px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  input,
+  button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  #loading-overlay {
+    padding: 10px;
+  }
+
+  .spinner {
+    width: 45px;
+    height: 45px;
+    border-width: 4px;
+  }
+
+  #toast-container {
+    max-width: 95vw;
+    padding: 0 5px;
+  }
+
+  .toast {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}

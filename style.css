@@ -1,0 +1,83 @@
+:root {
+  --cor-fundo: #000000;
+  --cor-principal: rgb(255, 196, 0);
+  --cor-texto: white;
+  --cor-erro: #f44336;
+  --cor-borda-input: white;
+  --preto-opacity: rgba(0, 0, 0, 0.7);
+}
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-principal);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Ícone superior */
+.icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.icon i {
+  color: var(--cor-principal);
+  font-size: 120px;
+}
+
+/* Formulário */
+form {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 0 10px rgba(255, 196, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--cor-texto);
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus {
+  border: 1px solid var(--cor-borda-input);
+  background-color: transparent;
+}
+
+input:not(:placeholder-shown) {
+  background-color: transparent;
+  border: 1px solid var(--cor-borda-input);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  form {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .icon i {
+    font-size: 80px;
+  }
+}

@@ -1,0 +1,412 @@
+:root {
+  --cor-fundo: #000000;
+  --cor-principal: rgb(255, 196, 0);
+  --cor-texto: white;
+  --cor-borda-input: white;
+  --preto-opacity: rgba(0, 0, 0, 0.7);
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  background-color: var(--cor-fundo);
+  color: var(--cor-principal);
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* evita scroll no body */
+}
+
+/* Container geral: sidebar + main */
+/* Container geral: agora coluna */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar como barra no topo */
+.sidebar {
+  width: 100%;
+  height: auto;
+  background-color: var(--cor-texto);
+  color: var(--preto-opacity);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  user-select: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+}
+
+/* Logo ajustada */
+.sidebar h2.logo {
+  color: var(--cor-principal);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.sidebar h2.logo i {
+  font-size: 24px;
+  color: var(--cor-principal);
+}
+
+/* Menu como linha */
+.sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.sidebar nav li {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--preto-opacity);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar nav li:hover,
+.sidebar nav li.active {
+  background-color: var(--cor-principal);
+  color: #000;
+  font-weight: 700;
+}
+
+/* Rodapé com logout no topo */
+.user-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.user-footer span {
+  word-break: break-word;
+  color: var(--preto-opacity);
+}
+
+.user-footer button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+.user-footer button:hover {
+  background-color: #d03c3c;
+}
+
+/* Área de conteúdo ocupa o restante */
+.content {
+  flex-grow: 1;
+  background-color: var(--preto-opacity);
+  padding: 40px 50px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: padding 0.3s ease;
+}
+
+/* Seções escondidas e ativas */
+.section {
+  display: none;
+  width: 100%;
+  max-width: 420px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section.active {
+  display: flex;
+}
+
+/* Títulos das seções */
+.section h2 {
+  color: var(--cor-principal);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Form fields */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-field > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+select, input[type="number"] {
+  flex-grow: 1;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1.8px solid var(--cor-borda-input);
+  background-color: transparent;
+  color: var(--cor-texto);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  user-select: text;
+  min-width: 150px;
+}
+
+select:focus,
+input[type="number"]:focus {
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 10px var(--cor-principal);
+}
+
+/* Botões */
+button {
+  width: 100%;
+  padding: 15px 0;
+  background-color: var(--cor-principal);
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+/* Botão favorito (estrela) */
+#fav-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--cor-principal);
+  padding: 0;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+#fav-toggle:hover {
+  color: #ffd933;
+}
+
+/* Resultado da conversão */
+.result {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--cor-principal);
+  min-height: 1.7em;
+  text-align: center;
+  user-select: text;
+}
+
+/* Listas de histórico e favoritos */
+#history-list, #favorites-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  background-color: #222831;
+}
+
+#history-list li, #favorites-list li {
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+#history-list li:hover, #favorites-list li:hover {
+  background-color: #393e46;
+  cursor: pointer;
+}
+
+/* Estilização customizada do select */
+
+select {
+  -webkit-appearance: none; /* Remove o estilo padrão em Safari/Chrome */
+  -moz-appearance: none; /* Remove o estilo padrão em Firefox */
+  appearance: none;
+  background-color: #121212; /* fundo escuro, um pouco diferente do preto total */
+  border: 1.8px solid var(--cor-principal);
+  color: var(--cor-texto);
+  padding: 14px 40px 14px 18px; /* espaço extra para seta à direita */
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  user-select: text;
+}
+
+/* Sombra e borda quando focado */
+select:focus {
+  border-color: #ffd933;
+  box-shadow: 0 0 8px #ffd933;
+  outline: none;
+}
+
+/* Remove foco azul padrão no Firefox */
+select::-moz-focus-inner {
+  border: 0;
+}
+
+/* Ícone seta customizada usando SVG embutido */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+}
+
+/* Opções */
+option {
+  background-color: #121212;
+  color: white;
+  padding: 10px;
+}
+
+/* Opcional: ao passar o mouse sobre opções (nem todos browsers suportam) */
+option:hover {
+  background-color: #333333;
+  color: var(--cor-principal);
+}
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 10px 20px;
+    box-shadow: none;
+    justify-content: space-between;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+  }
+
+  .sidebar nav li {
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .user-footer {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .content {
+    padding: 20px 15px;
+    overflow-y: auto;
+    align-items: center;
+  }
+
+  .section {
+    max-width: 100%;
+  }
+  #user-email {
+  display: none;
+}
+}
+
+@media (max-width: 480px) {
+  .sidebar nav ul {
+    gap: 10px;
+    
+  }
+
+  .sidebar nav li {
+    padding: 8px;
+    font-size: 0;
+    width: 40px;          /* largura fixa só para o ícone */
+    height: 40px;         /* altura fixa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .sidebar nav li i {
+    font-size: 1.6rem;    /* tamanho do ícone */
+    color: var(--preto-opacity);
+    
+  }
+
+  .sidebar nav li:hover,
+  .sidebar nav li.active i {
+    color: var(--preto-opacity);
+    
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  select, input[type="number"] {
+    font-size: 0.9rem;
+    padding: 12px 14px;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 15px 10px;
+  }
+
+  #user-email {
+  display: none;
+}
+
+}

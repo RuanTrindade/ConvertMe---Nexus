@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar - CovertMe</title>
+
+    <!-- Estilos da página -->
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../../global.css">
+    <link rel="icon" href="../../img/logo.png">
+
+    <!-- Boostrap Icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="centralize">
+    
+    <form>
+        <div class="form-field">
+            <div><label>Email</label></div>
+            <input type="email" placeholder="seumelhoremail@gmail.com" onchange="onChangeEmail()" id="email">
+            <div class="error" id="email-ob-error">
+                Email é obrigatório
+            </div>
+            <div class="error" id="email-in-error">
+                Email é inválido
+            </div>
+        
+        </div>
+        <div class="form-field">
+            <div><label >Senha</label></div>
+            <input type="password" placeholder="Senha" onchange="onChangePassword()" id="password">
+            <div class="error" id="password-ob-error">
+                Senha é obrigatório
+            </div>
+            <div class="error" id="password-min-length-error">
+                Senha deve ter pelo menos 6 caracteres
+            </div>
+        </div>
+        <div class="form-field">
+            <div><label>Confirmar senha</label></div>
+            <input type="password" placeholder="Confirmar senha" onchange="onChangeConfirmPassword()" id="confirmPassword">
+              <div class="error" id="password-doesnt-match-error">
+                Senha e Confirmar senha devem ser iguais
+            </div>
+           
+        </div>
+        <div>
+            <button type="button" class="solid" id="register-button" disabled="true" onclick="register()">Registrar</button>
+
+        </div>
+        <div>
+            <button type="button" class="clear">Login</button>
+        </div>
+    </form>
+    <div id="toast-container"></div>
+    <div id="loading-overlay" style="display:none;">
+    <div class="spinner"></div>
+</div>
+
+</body>
+
+<script src="register.js"></script>
+<script src="../../validate.js"></script>
+<script src="../../loading.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+<script src="../../firebase-init.js"></script>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CovertMe</title>
+
+    <!-- Estilos da página -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="icon" href="./img/logo.png">
+
+    <!-- Boostrap Icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="centralize">
+    
+<form>
+    <div class="icon"><i class="bi bi-coin"></i></div>
+    <div class="form-field">
+        <div><label for="">Email</label></div>
+        <input type="email" name="email" id="email" onchange="onEmail()" placeholder="Email">
+        <div class="error" id="email-ob-error">*Email é obrigatório</div>
+        <div class="error" id="email-in-error">*Email é inválido</div>
+        
+
+    </div>
+    <div class="form-field">
+        <div><label for="">Senha</label></div>
+        <input type="password" name="senha" id="password" onchange="onPassword()" placeholder="Senha">
+        <div class="error" id="password-ob-error">*Senha é obrigatória</div>
+
+
+
+
+    </div>
+    <div>
+        <button type="button" class="clear" id="recover-password-button" onclick="recoverPassword()" disabled="true">Recuperar senha</button>
+    </div>
+    <div>
+        <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+    </div>
+    <div>
+        <button type="button" class="outline" onclick="register()">Registrar</button>
+    </div>
+</form>
+
+<div id="toast-container"></div>
+
+
+<div id="loading-overlay" style="display: none;">
+    <div class="spinner"></div>
+</div>
+
+</body>
+
+<script src="index.js"></script>
+<script src="validate.js"></script>
+<script src="loading.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+<script src="firebase-init.js"></script>
+</html>
