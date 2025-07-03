@@ -39,6 +39,13 @@ Permite ao usuário realizar conversões, salvar histórico, favoritar criptomoe
 
 ---
 
+## 🚀 Aplicação VERCEL
+
+1. Acesse no vercel  
+   ```bash
+   https://convert-me-nexus.vercel.app/
+---
+
 ## 📞 Contato
 
 Para dúvidas, sugestões ou parcerias, entre em contato:  
